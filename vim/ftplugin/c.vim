@@ -1,0 +1,3 @@
+set nosmartindent
+set cindent
+
