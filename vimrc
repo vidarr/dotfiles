@@ -35,6 +35,10 @@ syntax enable
 set background=dark
 colorscheme monokai
 set guifont=Courier\ 10\ Pitch\ 14
+
+" Handle X11 selection
+set guioptions+=a
+
 " Highlight column stuff
 let g:Colorcolumn = "80,".join(range(120,999),",")
 let &colorcolumn=g:Colorcolumn
@@ -194,6 +198,13 @@ au! BufEnter *.c   let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,so
 au! BufEnter *.h   let b:fswitchdst = 'c,cpp' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
 
 "==============================================================================
+" Abbreviations
+"==============================================================================
+
+iab *author* (C) 2018 Beer Michael, DLR/GSOC <michael.beer@dlr.de>
+cab notes e ~/.vim/notes
+
+"==============================================================================
 " Functions
 "==============================================================================
 
@@ -213,9 +224,6 @@ function Reset_simple_formatting()
 
 endfunction
 
-
-iab *author* (C) 2018 Beer Michael, DLR/GSOC <michael.beer@dlr.de>
-
 " Debugging
 " set verbose=9
 
@@ -228,3 +236,11 @@ function! StatuslineGit()
   let l:branchname = GitBranch()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
+
+
+"==============================================================================
+"                                Play away
+"==============================================================================
+
+" For vim config files, reload
+au FileType vim nmap <silent> <leader>r :source %<CR>
