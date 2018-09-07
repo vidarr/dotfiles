@@ -100,16 +100,20 @@ highlight Folded  ctermfg=cyan ctermbg=black
 " Always show status line
 set laststatus=2
 
+hi User1 ctermfg=197 ctermbg=237 cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
+
 set statusline=
 set statusline+=%#function#\ %l
 set statusline+=\ %*
+set statusline+=%#LineNr#
 set statusline+=\ ‹‹
 set statusline+=\ %f\ %*
+set statusline+=%#LineNr#
 set statusline+=\ ››
 set statusline+=\ %m
-set statusline+=%#keyword#\ %F
+set statusline+=%1*\ %F
 set statusline+=%=
-set statusline+=%#CursorColumn#
+set statusline+=%#LineNr#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
@@ -150,6 +154,9 @@ nnoremap <silent> <C-p> :MarkdownPreview default<CR>
 
 " Shortcut
 imap <C-w><C-w>  <esc><C-w><C-w>
+
+" Make block mode commands smart
+vnoremap : :B 
 
 "==============================================================================
 " Shortcuts
