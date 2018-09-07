@@ -101,11 +101,13 @@ highlight Folded  ctermfg=cyan ctermbg=black
 set laststatus=2
 
 set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
+set statusline+=%#function#\ %l
+set statusline+=\ %*
+set statusline+=\ ‹‹
+set statusline+=\ %f\ %*
+set statusline+=\ ››
+set statusline+=\ %m
+set statusline+=%#keyword#\ %F
 set statusline+=%=
 set statusline+=%#CursorColumn#
 set statusline+=\ %y
@@ -166,7 +168,7 @@ nnoremap <silent> <C-f> :FSHere<CR>
 nnoremap <silent> <F11> :ToggleBufExplorer<CR>
 nnoremap <silent> <F12> :Explore<CR>
 
-inoremap <silent> <C-e> :FufFile<CR>
+inoremap <silent> <C-e> <Esc>:FufFile<CR>
 inoremap <silent> <C-b> <Esc>:FufBuffer<CR>
 inoremap <silent> <C-f> <Esc>:FSHere<CR>
 inoremap <silent> <F11> <Esc>:ToggleBufExplorer<CR>
