@@ -33,7 +33,7 @@ set autochdir
 syntax enable
 " Colors
 set background=dark
-colorscheme monokai
+colorscheme skirnir
 set guifont=Courier\ 10\ Pitch\ 14
 
 " Handle X11 selection
