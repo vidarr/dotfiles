@@ -18,7 +18,7 @@
 "
 function! NewFileFromTemplate(template)
 
-    let regexes = [["YEAR", strftime("%Y")], ["FILENAME_BASE", toupper(expand("%:t:r"))] ]
+    let regexes = [["YEAR", strftime("%Y")], ["DATE", strftime("%Y-%m-%d")], ["FILENAME_BASE", toupper(expand("%:t:r"))], ["FILENAME", expand("%")]]
 
     execute "0r " . a:template
 
@@ -52,5 +52,6 @@ if has("autocmd")
         autocmd BufNewFile *.rs :call NewFileFromTemplate("$HOME/.vim/templates/template.rs")
         autocmd BufNewFile *.c  :call NewFileFromTemplate("$HOME/.vim/templates/template.c")
         autocmd BufNewFile *.h  :call NewFileFromTemplate("$HOME/.vim/templates/template.h")
+        autocmd BufNewFile *.py  :call NewFileFromTemplate("$HOME/.vim/templates/template.py")
     augroup END
 endif

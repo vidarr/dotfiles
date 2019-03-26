@@ -27,6 +27,8 @@ set backspace=indent,eol,start
 set hlsearch
 set incsearch
 
+set scrolloff=999
+
 set autochdir
 
 " colorscheme desert
@@ -61,6 +63,12 @@ set hidden
 
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
+
+"==============================================================================
+" netrw options
+"
+" File patterns to hide. Can be toggled by 'a'
+let g:netrw_list_hide='.*\.o$,^\..*'
 
 "==============================================================================
 "bufferlist options
@@ -140,7 +148,6 @@ cnorea   fe /\%1c}<CR>
 
 let mapleader = '\'
 
-nmap <silent> <Leader>of :FSHere<cr>
 nmap <silent> <Leader>ol :FSRight<cr>
 nmap <silent> <Leader>oL :FSSplitRight<cr>
 nmap <silent> <Leader>oj :FSBelow<cr>
@@ -155,25 +162,25 @@ nnoremap <silent> <C-p> :MarkdownPreview default<CR>
 " Shortcut
 imap <C-w><C-w>  <esc><C-w><C-w>
 
-" Make block mode commands smart
-vnoremap : :B 
-
 "==============================================================================
 " Shortcuts
-" Insert separator  ( /*-[-*]*/ ) from end of line to column 80
-nnoremap <silent> <leader>s <esc>A/*<esc>78A-<esc>d78<bar>A*/<esc>
+" Insert separator  ( -[-*] ) from end of line to column 80
+nnoremap <silent> <leader>s <esc>A<esc>80-<esc>d80<bar><esc>
+au FileType c,cpp,objc nnoremap <silent> <leader>s <esc>A/*<esc>78A-<esc>d78<bar>A*/<esc>
+au FileType python,perl nnoremap <silent> <leader>s <esc>A#<esc>80A-<esc>d80<bar><esc>
+
 " Create 'heading' like separators around a line of text
 nnoremap <silent> <leader>h <esc>O/*<esc>x78p<esc>j:center<CR>0lr*<esc>o<esc>0C *<esc>x78pa/<esc>j
 " Create 'heading' like separators but respecting current indentation
 nnoremap <silent> <leader>a <esc>O/*<esc>79a*<esc>d79\|jo<esc>79a*<esc>d79\|s*/<esc>k:center<CR>
 
 "==============================================================================
-" Explorer
-nnoremap <silent> <C-e> :FufFile<CR>
-nnoremap <silent> <C-b> :FufBuffer<CR>
-nnoremap <silent> <C-f> :FSHere<CR>
-nnoremap <silent> <F11> :ToggleBufExplorer<CR>
-nnoremap <silent> <F12> :Explore<CR>
+
+noremap <silent> <C-e> <Esc>:FufFile<CR>
+noremap <silent> <C-b> <Esc>:FufBuffer<CR>
+noremap <silent> <C-f> <Esc>:FSHere<CR>
+noremap <silent> <F11> <Esc>:ToggleBufExplorer<CR>
+noremap <silent> <F12> <Esc>:Explore<CR>
 
 inoremap <silent> <C-e> <Esc>:FufFile<CR>
 inoremap <silent> <C-b> <Esc>:FufBuffer<CR>
@@ -200,6 +207,10 @@ autocmd BufNewFile,BufReadPost *.gcov set filetype=gcov
 
 " markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" yaml
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " FSwitch
 au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
@@ -253,3 +264,7 @@ endfunction
 
 " For vim config files, reload
 au FileType vim nmap <silent> <leader>r :source %<CR>
+
+nmap <silent> <UP> :cn<CR>
+nmap <silent> <DOWN> :cN<CR>
+
