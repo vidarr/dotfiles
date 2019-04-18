@@ -2,6 +2,10 @@
 " Options
 "==============================================================================
 
+" make 'find' usable
+set path+=**
+set wildmenu
+
 set exrc
 set secure
 
@@ -221,7 +225,7 @@ au! BufEnter *.h   let b:fswitchdst = 'c,cpp' | let b:fswitchlocs = 'rel:.,../sr
 " Abbreviations
 "==============================================================================
 
-iab *author* (C) 2018 Beer Michael, DLR/GSOC <michael.beer@dlr.de>
+iab *author* (C) 2019 Beer Michael, <michael.josef.beer at googlemail.com>
 cab notes e ~/.vim/notes
 
 "==============================================================================
