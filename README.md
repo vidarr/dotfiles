@@ -1,6 +1,6 @@
 # vimconfig
 
-My vim configuration.
+My configuration for various programs (vim, i3, ...)
 
 # Requirements
 
