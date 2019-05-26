@@ -174,7 +174,9 @@ au FileType c,cpp,objc nnoremap <silent> <leader>s <esc>A/*<esc>78A-<esc>d78<bar
 au FileType python,perl nnoremap <silent> <leader>s <esc>A#<esc>80A-<esc>d80<bar><esc>
 
 " Create 'heading' like separators around a line of text
-nnoremap <silent> <leader>h <esc>O/*<esc>x78p<esc>j:center<CR>0lr*<esc>o<esc>0C *<esc>x78pa/<esc>j
+au FileType c,cpp,objc nnoremap <silent> <leader>h <esc>O/*<esc>x78p<esc>j:center<CR>0lr*<esc>o<esc>0C *<esc>x78pa/<esc>j
+au FileType python,perl nnoremap <silent> <leader>h <esc>O#<esc>x79p<esc>j:center<CR>0r#<esc>o<esc>0C#<esc>x79p<esc>j
+
 " Create 'heading' like separators but respecting current indentation
 nnoremap <silent> <leader>a <esc>O/*<esc>79a*<esc>d79\|jo<esc>79a*<esc>d79\|s*/<esc>k:center<CR>
 
@@ -265,6 +267,15 @@ endfunction
 "==============================================================================
 "                                Play away
 "==============================================================================
+
+" Enable hybrid mode and toggle smartly
+" https://jeffkreeftmeijer.com/vim-number/
+set number relativenumber
+augroup numbertoggle
+autocmd!
+autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " For vim config files, reload
 au FileType vim nmap <silent> <leader>r :source %<CR>
