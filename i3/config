@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -43,10 +43,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -67,10 +67,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -169,13 +169,53 @@ bar {
         status_command i3status
 }
 
-bindsym $mod+Shift+x move workspace to output right
-bindsym $mod+x move workspace to output left
+
+# -----------------------------------------------------------------------------
+# Multimonitor setup at work
+# -----------------------------------------------------------------------------
+
+# set $leftMonitor DVI-I-1
+# set $rightMonitor DP-1
+#
+# exec  xrandr --output $rightMonitor --auto --right-of $leftMonitor --auto
+#
+# workspace 1 output $leftMonitor
+# workspace 3 output $leftMonitor
+# workspace 5 output $leftMonitor
+# workspace 7 output $leftMonitor
+# workspace 9 output $leftMonitor
+# workspace 11 output $leftMonitor
+# workspace 13 output $leftMonitor
+# workspace 15 output $leftMonitor
+# workspace 17 output $leftMonitor
+# workspace 19 output $leftMonitor
+#
+# workspace 2 output $rightMonitor
+# workspace 4 output $rightMonitor
+# workspace 6 output $rightMonitor
+# workspace 8 output $rightMonitor
+# workspace 10 output $rightMonitor
+# workspace 12 output $rightMonitor
+# workspace 14 output $rightMonitor
+# workspace 16 output $rightMonitor
+# workspace 18 output $rightMonitor
+# workspace 20 output $rightMonitor
+#
+# bindsym $mod+Shift+x move workspace to output right
+# bindsym $mod+x move workspace to output left
+
+# -----------------------------------------------------------------------------
+# Other
+# -----------------------------------------------------------------------------
 
 bindsym $mod+Shift+z exec /usr/bin/i3lock
 
 exec xmodmap -e "pointer = 3 2 1"
 exec feh --bg-fill $HOME/Pictures/flossenbuerg_1.jpg  $HOME/Pictures/flossenbuerg_1.jpg
-exec nm-applet
+exec nm-applet &
+
+exec /usr/bin/pasystray &
 
 # exec /usr/bin/pulseaudio --start # --daemonize=no
+
+
