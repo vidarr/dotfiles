@@ -1,4 +1,4 @@
-# vimconfig
+# dotfiles
 
 My configuration for various programs (vim, i3, ...)
 
