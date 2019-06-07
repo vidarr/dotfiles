@@ -169,8 +169,8 @@ imap <C-w><C-w>  <esc><C-w><C-w>
 "==============================================================================
 " Shortcuts
 " Insert separator  ( -[-*] ) from end of line to column 80
-nnoremap <silent> <leader>s <esc>A<esc>80-<esc>d80<bar><esc>
-au FileType c,cpp,objc nnoremap <silent> <leader>s <esc>A/*<esc>78A-<esc>d78<bar>A*/<esc>
+nnoremap <silent> <leader>s <esc>A=<esc>80A=<esc>d80<bar><esc>
+au FileType c,cpp,objc,rust nnoremap <silent> <leader>s <esc>A/*<esc>78A-<esc>d78<bar>A*/<esc>
 au FileType python,perl nnoremap <silent> <leader>s <esc>A#<esc>80A-<esc>d80<bar><esc>
 
 " Create 'heading' like separators around a line of text
