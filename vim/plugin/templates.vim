@@ -45,13 +45,21 @@ function! NewFileFromTemplate(template)
 
 endfunction
 
+let templatedir="templates"
+
+if exists("g:Templatedir")
+
+    let templatedir = g:Templatedir
+
+endif
+
 " Template registrations
 if has("autocmd")
     augroup templates
-        autocmd BufNewFile *.sh :call NewFileFromTemplate("$HOME/.vim/templates/template.sh")
-        autocmd BufNewFile *.rs :call NewFileFromTemplate("$HOME/.vim/templates/template.rs")
-        autocmd BufNewFile *.c  :call NewFileFromTemplate("$HOME/.vim/templates/template.c")
-        autocmd BufNewFile *.h  :call NewFileFromTemplate("$HOME/.vim/templates/template.h")
-        autocmd BufNewFile *.py  :call NewFileFromTemplate("$HOME/.vim/templates/template.py")
+        autocmd BufNewFile *.sh :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.sh")
+        autocmd BufNewFile *.rs :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.rs")
+        autocmd BufNewFile *.c :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.c")
+        autocmd BufNewFile *.h :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.h")
+        autocmd BufNewFile *.py :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.py")
     augroup END
 endif
