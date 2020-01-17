@@ -18,7 +18,7 @@ SAVEHIST=1000
 #
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export PROMPT="%h %u@%m:%~%# "
+export PROMPT="%h %F{green}%n%f@%m:%F{blue}%B%~%b%f %#"
 export EDITOR=vim
 
 alias ls='ls --color'
