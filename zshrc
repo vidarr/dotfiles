@@ -15,7 +15,10 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
-#
+
+xset b off
+xset b 0 0 0
+
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PROMPT="%h %F{green}%n%f@%m:%F{blue}%B%~%b%f %#"

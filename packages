@@ -7,3 +7,9 @@ feh
 screen
 nm-applet
 pasystray
+
+# For displaying images directly in ranger
+w3m-img
+
+# At least for rust installation
+curl
