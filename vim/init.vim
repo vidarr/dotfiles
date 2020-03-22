@@ -1,1 +1,1 @@
-/home/beer/.vimrc
+source $HOME/.vimrc
