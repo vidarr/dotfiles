@@ -1,4 +1,15 @@
 vim
+
+# Better: neovim
+nvim
+# This one supports X11 selections
+nvim-qt
+
+# Required for coc.nvim
+nodejs
+ccls
+yarn
+
 i3
 ranger
 mupdf
