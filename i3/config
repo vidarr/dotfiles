@@ -34,6 +34,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec /usr/bin/urxvt -e /usr/bin/zsh
 
+bindsym $mod+v /usr/bin/nvim-qt
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -209,6 +211,10 @@ bindsym XF86AudioMute        exec pactl set-sink-mute 0 toggle
 # bindsym $mod+Shift+x move workspace to output right
 # bindsym $mod+x move workspace to output left
 
+# Laptop
+exec xrandr --output eDP-1 --mode 1360x768
+
+
 # -----------------------------------------------------------------------------
 # Other
 # -----------------------------------------------------------------------------
@@ -220,5 +226,6 @@ exec xmodmap -e "pointer = 3 2 1"
 exec feh --bg-fill $HOME/Pictures/flossenbuerg_1.jpg  $HOME/Pictures/flossenbuerg_1.jpg
 
 exec nm-applet &
+# exec /usr/bin/pulseaudio &
 exec /usr/bin/pasystray &
 
