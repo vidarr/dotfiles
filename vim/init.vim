@@ -16,3 +16,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
+
+" Use coc instead of built-in goto-definition
+nmap <silent> gd <Plug>(coc-definition)
