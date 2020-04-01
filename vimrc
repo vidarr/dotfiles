@@ -35,6 +35,8 @@ set scrolloff=999
 
 set autochdir
 
+set autoread
+
 " colorscheme desert
 syntax enable
 " Colors
@@ -219,8 +221,8 @@ au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " FSwitch
-au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
-au! BufEnter *.c   let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
+au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include,../../include'
+au! BufEnter *.c   let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include,../../include'
 au! BufEnter *.h   let b:fswitchdst = 'c,cpp' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
 
 "==============================================================================
