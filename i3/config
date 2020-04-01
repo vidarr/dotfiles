@@ -209,10 +209,13 @@ bindsym XF86AudioMute        exec pactl set-sink-mute 0 toggle
 # bindsym $mod+Shift+x move workspace to output right
 # bindsym $mod+x move workspace to output left
 
+exec xrandr --output eDP-1 --mode 1280x720
+
 # -----------------------------------------------------------------------------
 # Other
 # -----------------------------------------------------------------------------
 
+bindsym $mod+v exec /usr/bin/nvim-qt
 bindsym $mod+Shift+z exec /usr/bin/i3lock
 
 exec xmodmap -e "pointer = 3 2 1"
