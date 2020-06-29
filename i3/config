@@ -34,7 +34,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec /usr/bin/urxvt -e /usr/bin/zsh
 
-bindsym $mod+v /usr/bin/nvim-qt
+bindsym $mod+v exec /usr/bin/nvim-qt
 
 # kill focused window
 bindsym $mod+Shift+q kill
