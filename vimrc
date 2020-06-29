@@ -31,10 +31,12 @@ set backspace=indent,eol,start
 set hlsearch
 set incsearch
 
+set complete-=t     " Disable complete searching tags - I dont use them
 set scrolloff=999
 
 set autochdir
 
+set autoread
 " colorscheme desert
 syntax enable
 " Colors
@@ -97,7 +99,12 @@ if match($TERM, "screen")!=-1
     set term=screen-256color
 endif
 
-"==============================================================================
+"=====[ Change cursor during insertion "]=======================================
+
+let &t_SI="\033[5 q" " start insert mode, switch to blinking cursor
+let &t_EI="\033[1 q" " end insert mode, back to square cursor
+
+"=====[ Folding ================================================================
 " Folding
 
 " Don't start new buffers folded
@@ -105,6 +112,18 @@ set foldlevelstart=99
 
 " Highlight folds
 highlight Folded  ctermfg=cyan ctermbg=black
+
+"=====[ Search folding ]========================================================
+
+" Don't start new buffers folded
+set foldlevelstart=99
+
+" Highlight folds
+highlight Folded  ctermfg=cyan ctermbg=black
+
+" Toggle special folds on and off...
+nmap <silent> <expr>  zz  FS_ToggleFoldAroundSearch({'context':1})
+nmap <silent> <expr>  zc  FS_ToggleFoldAroundSearch({'hud':1})
 
 "==============================================================================
 " Statusline
@@ -174,8 +193,8 @@ au FileType c,cpp,objc,rust nnoremap <silent> <leader>s <esc>A/*<esc>78A-<esc>d7
 au FileType python,perl nnoremap <silent> <leader>s <esc>A#<esc>80A-<esc>d80<bar><esc>
 
 " Create 'heading' like separators around a line of text
-au FileType c,cpp,objc nnoremap <silent> <leader>h <esc>O/*<esc>x78p<esc>j:center<CR>0lr*<esc>o<esc>0C *<esc>x78pa/<esc>j
-au FileType python,perl nnoremap <silent> <leader>h <esc>O#<esc>x79p<esc>j:center<CR>0r#<esc>o<esc>0C#<esc>x79p<esc>j
+au FileType c,cpp,objc nnoremap <silent> <leader>h <esc>^ma0y`akpa/*<esc>x80pd80<bar>yyjpr*$r/<esc>^r k:center<CR>j^kr*<esc>$
+au FileType python,perl nnoremap <silent> <leader>h <esc>^ma0y`akpa#<esc>x80pd80<bar>yyjp^k:center<CR>j^kr#<esc>$
 
 " Create 'heading' like separators but respecting current indentation
 nnoremap <silent> <leader>a <esc>O/*<esc>79a*<esc>d79\|jo<esc>79a*<esc>d79\|s*/<esc>k:center<CR>
@@ -220,8 +239,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " FSwitch
 au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
-au! BufEnter *.c   let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
-au! BufEnter *.h   let b:fswitchdst = 'c,cpp' | let b:fswitchlocs = 'rel:.,../src,source,../include,include'
+au! BufEnter *.c   let b:fswitchdst = 'h' | let b:fswitchlocs = 'rel:.,../src,source,../include,../../include,include'
+au! BufEnter *.h   let b:fswitchdst = 'c,cpp' | let b:fswitchlocs = 'rel:.,../src,source,../include,include,../src/*/'
 
 "==============================================================================
 " Abbreviations
@@ -285,6 +304,8 @@ augroup END
 " For vim config files, reload
 au FileType vim nmap <silent> <leader>r :source %<CR>
 
-nmap <silent> <UP> :cn<CR>
-nmap <silent> <DOWN> :cN<CR>
+" Requires suckless sselp : https://git.suckless.org/sselp
+nmap <silent> <leader>y :! sselp
 
+" User openvocs templates instead of standard ones
+let g:Templatedir="templates-ov"
