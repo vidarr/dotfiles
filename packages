@@ -13,3 +13,16 @@ w3m-img
 
 # At least for rust installation
 curl
+
+#development
+kdiff3
+
+valgrind
+
+# for evaluating massif output
+massif-visualizer
+
+# for evaluating massif xtree output
+kcachegrind
+
+

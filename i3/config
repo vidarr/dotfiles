@@ -124,7 +124,12 @@ bindsym $mod+Shift+0 move container to workspace number 10
 #                  'Bind' certain apps to particular workspace
 #-------------------------------------------------------------------------------
 
+# Use xwininfo(1) & xprop(1) to find out proper values for window
 assign [class="Firefox"] 6
+
+# Start kdiff3 maximized
+for_window [class="KDiff3"] fullscreen enable
+for_window [class="kdiff3"] fullscreen enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

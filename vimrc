@@ -31,6 +31,8 @@ set backspace=indent,eol,start
 set hlsearch
 set incsearch
 
+set complete-=t     " Disable complete searching tags - I dont use them
+
 set scrolloff=999
 
 set autochdir
@@ -99,7 +101,12 @@ if match($TERM, "screen")!=-1
     set term=screen-256color
 endif
 
-"==============================================================================
+"=====[ Change cursor during insertion "]=======================================
+
+let &t_SI="\033[5 q" " start insert mode, switch to blinking cursor
+let &t_EI="\033[1 q" " end insert mode, back to square cursor
+
+"=====[ Folding ================================================================
 " Folding
 
 " Don't start new buffers folded
@@ -107,6 +114,18 @@ set foldlevelstart=99
 
 " Highlight folds
 highlight Folded  ctermfg=cyan ctermbg=black
+
+"=====[ Search folding ]========================================================
+
+" Don't start new buffers folded
+set foldlevelstart=99
+
+" Highlight folds
+highlight Folded  ctermfg=cyan ctermbg=black
+
+" Toggle special folds on and off...
+nmap <silent> <expr>  zz  FS_ToggleFoldAroundSearch({'context':1})
+nmap <silent> <expr>  zc  FS_ToggleFoldAroundSearch({'hud':1})
 
 "==============================================================================
 " Statusline
