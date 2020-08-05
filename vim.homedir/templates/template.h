@@ -20,7 +20,8 @@
         ------------------------------------------------------------------------
 *//**
 
-        @author         Michael J. Beer
+        @author Michael J. Beer, DLR/GSOC
+        @copyright (c) %%YEAR%% German Aerospace Center DLR e.V. (GSOC)
 
         ------------------------------------------------------------------------
 */

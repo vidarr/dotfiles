@@ -1,0 +1,2 @@
+PATH=$HOME/programs/bin:$HOME/programs/firefox:$PATH
+export PATH
