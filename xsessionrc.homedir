@@ -1,1 +1,1 @@
-PATH=/usr/local/bin:$HOME/programme/firefox:$PATH
+export PATH=$HOME/programs/firefox:$HOME/programs/bin:$HOME/bin:$PATH

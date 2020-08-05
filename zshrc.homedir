@@ -30,8 +30,6 @@ export JAVA_HOME="/opt/jdk-10.0.2"
 # RUST
 source $HOME/.cargo/env
 
-# PATH
-export PATH=$HOME/programs/firefox:$HOME/programs/bin:$HOME/bin:$JAVA_HOME/bin:$PATH
 
 # PROMPT
 export PROMPT="%h %F{green}%n%f@%m:%F{blue}%B%~%b%f %#"
@@ -52,3 +50,7 @@ OPENVOCS_ROOT=$HOME/projekte/ov/openvocs2
 cd $OPENVOCS_ROOT
 source $OPENVOCS_ROOT/env.sh
 
+# PATH
+source $HOME/.PATH
+
+export PATH=$JAVA_HOME/bin:$PATH

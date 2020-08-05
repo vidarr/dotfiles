@@ -62,6 +62,7 @@ function install_files () {
 #------------------------------------------------------------------------------
 
 install_files homedir $HOME "dotify"
+install_files homedir.nodotify $HOME
 install_files config $HOME/.config
 
 for SCRIPT in $PLUGIN_DIR/*.sh; do
