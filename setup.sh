@@ -27,6 +27,8 @@
 #
 #------------------------------------------------------------------------------
 
+PLUGIN_DIR=plugin.scripts
+
 SOURCE_DIR=$(pwd)
 
 function install_files () {
@@ -55,8 +57,17 @@ function install_files () {
 
 }
 
+#------------------------------------------------------------------------------
+#                                     MAIN
+#------------------------------------------------------------------------------
+
 install_files homedir $HOME "dotify"
 install_files config $HOME/.config
 
+for SCRIPT in $PLUGIN_DIR/*.sh; do
+
+    bash $SCRIPT
+
+done
 
 
