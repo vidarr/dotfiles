@@ -1,1 +1,1 @@
-GuiFont! Courier:b:h18
+GuiFont! FreeMono:b:h18

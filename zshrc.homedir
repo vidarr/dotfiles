@@ -44,6 +44,7 @@ export EDITOR=vim
 export http_proxy="http://proxywww.nos.office:3128"
 export https_proxy="http://proxywww.nos.office:3128"
 
+export SCREENDIR=$HOME/.screen
 # openvocs
 OPENVOCS_ROOT=$HOME/projekte/ov/openvocs2
 

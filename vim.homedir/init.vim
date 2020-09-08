@@ -1,5 +1,3 @@
-source $HOME/.vimrc
-
 " For installing vim-plug, do
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,9 +8,18 @@ source $HOME/.vimrc
 "
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Requires: ccls
+"
+" Install from repo
+"
 " Requires: nodejs.
 " Install with
 " curl -sL install-node.now.sh/lts | bash
+"
+" Requires: neovim js package
+" Install with
+" /usr/local/npm install -g neovim
+"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -80,4 +87,5 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+source $HOME/.vimrc
 
