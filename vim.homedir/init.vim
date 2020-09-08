@@ -7,6 +7,7 @@ source $HOME/.vimrc
 " Install the plugins with
 "
 " In nvim: :PlugInstall
+"          :UpdateRemotePlugins
 "
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -14,6 +15,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Install with
 " curl -sL install-node.now.sh/lts | bash
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
 
 call plug#end()
 
