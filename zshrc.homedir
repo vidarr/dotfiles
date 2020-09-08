@@ -24,6 +24,9 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ls='ls --color'
 
+# Force emacs keymap
+bindkey -e
+
 # JAVA
 export JAVA_HOME="/opt/jdk-10.0.2"
 
@@ -41,8 +44,11 @@ export GIT_AUTHOR_EMAIL="michael.beer@dlr.de"
 export AUTHOR="$GIT_AUTHOR_NAME, DLR/GSOC <$GIT_AUTHOR_EMAIL>"
 export EDITOR=vim
 
-export http_proxy="http://proxywww.nos.office:3128"
-export https_proxy="http://proxywww.nos.office:3128"
+# export http_proxy="http://proxywww.nos.office:3128"
+# export https_proxy="http://proxywww.nos.office:3128"
+
+# PATH
+source $HOME/.PATH
 
 export SCREENDIR=$HOME/.screen
 # openvocs
@@ -50,8 +56,5 @@ OPENVOCS_ROOT=$HOME/projekte/ov/openvocs2
 
 cd $OPENVOCS_ROOT
 source $OPENVOCS_ROOT/env.sh
-
-# PATH
-source $HOME/.PATH
 
 export PATH=$JAVA_HOME/bin:$PATH

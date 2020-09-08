@@ -56,6 +56,7 @@ endif
 " Template registrations
 if has("autocmd")
     augroup templates
+        autocmd BufNewFile *.md :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.md")
         autocmd BufNewFile *.sh :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.sh")
         autocmd BufNewFile *.rs :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.rs")
         autocmd BufNewFile *.c :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.c")

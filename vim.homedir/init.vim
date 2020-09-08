@@ -5,6 +5,7 @@
 " Install the plugins with
 "
 " In nvim: :PlugInstall
+"          :UpdateRemotePlugins
 "
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -21,6 +22,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " /usr/local/npm install -g neovim
 "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
 
 call plug#end()
 
