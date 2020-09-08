@@ -213,9 +213,9 @@ bindsym $mod+Shift+x move workspace to output right
 bindsym $mod+x move workspace to output left
 
 
-exec  xrandr --output $rightMonitor --auto --right-of $leftMonitor --auto
+# exec  xrandr --output $rightMonitor --auto --right-of $leftMonitor --auto
 
-# exec xrandr --output eDP-1 --mode 1280x720
+exec xrandr --output eDP-1 --mode 1280x720
 
 # -----------------------------------------------------------------------------
 # Other
