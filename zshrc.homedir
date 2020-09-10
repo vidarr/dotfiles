@@ -58,3 +58,6 @@ cd $OPENVOCS_ROOT
 source $OPENVOCS_ROOT/env.sh
 
 export PATH=$JAVA_HOME/bin:$PATH
+
+# enable vi mode line editing (partly to not interfere with ^a screen command)
+bindkey -v
