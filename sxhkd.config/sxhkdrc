@@ -1,0 +1,11 @@
+super + Return
+    /usr/local/bin/st
+
+super + d
+    dmenu
+
+super + v
+    /usr/bin/nvim-qt
+
+super + shift + z
+    /usr/bin/i3lock
