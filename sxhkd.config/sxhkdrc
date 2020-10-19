@@ -2,7 +2,7 @@ super + Return
     /usr/local/bin/st
 
 super + d
-    dmenu
+    dmenu_run
 
 super + v
     /usr/bin/nvim-qt
