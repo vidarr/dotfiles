@@ -32,7 +32,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec /usr/bin/urxvt -e /usr/bin/zsh
-# bindsym $mod+Return exec /usr/local/bin/st
+bindsym $mod+Return exec /usr/local/bin/st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -230,4 +230,6 @@ exec feh --bg-fill $HOME/Pictures/flossenbuerg_1.jpg  $HOME/Pictures/flossenbuer
 
 exec nm-applet &
 exec /usr/bin/pasystray &
+
+exec /usr/bin/sxhkd &
 
