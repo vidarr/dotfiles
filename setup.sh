@@ -31,6 +31,8 @@ PLUGIN_DIR=plugin.scripts
 
 SOURCE_DIR=$(pwd)
 
+TEMPDIR=/tmp
+
 function install_files () {
 
     SUFFIX=$1
@@ -65,7 +67,11 @@ install_files homedir $HOME "dotify"
 install_files homedir.nodotify $HOME
 install_files config $HOME/.config
 
+export TEMPDIR
+
 for SCRIPT in $PLUGIN_DIR/*.sh; do
+
+    echo "Running $SCRIPT"
 
     bash $SCRIPT
 
