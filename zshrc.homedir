@@ -35,7 +35,7 @@ source $HOME/.cargo/env
 
 
 # PROMPT
-export PROMPT="%h %F{green}%n%f@%m:%F{blue}%B%~%b%f %#"
+export PROMPT="%F{green}%n%f@%m:%F{blue}%B%~%b%f$ "
 
 # GIT etc
 export GIT_AUTHOR_NAME="Michael J. Beer"
