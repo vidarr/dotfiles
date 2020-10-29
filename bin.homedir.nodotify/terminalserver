@@ -1,3 +1,0 @@
-#!/bin/bash
-http_proxy= https_proxy= xfreerdp -f 10.61.255.110
-
