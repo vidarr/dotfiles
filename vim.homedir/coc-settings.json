@@ -1,5 +1,4 @@
 {
-    "http.proxy" : "http://proxywww.nos.office:3128",
     "languageserver": {
         "ccls": {
             "command": "ccls",
