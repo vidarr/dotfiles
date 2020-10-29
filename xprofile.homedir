@@ -1,0 +1,2 @@
+# Run simple x hotkey daemon
+/usr/bin/sxhkd &

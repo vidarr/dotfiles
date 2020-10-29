@@ -1,0 +1,32 @@
+vim
+i3
+ranger
+mupdf
+gimp
+feh
+screen
+nm-applet
+pasystray
+
+# monitor files for changes
+entr
+
+# For displaying images directly in ranger
+w3m-img
+
+# At least for rust installation
+curl
+
+#development
+kdiff3
+
+valgrind
+
+# for evaluating massif output
+massif-visualizer
+
+# for evaluating massif xtree output
+kcachegrind
+
+# contains the errno(1) utility
+moreutils

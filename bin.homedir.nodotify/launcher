@@ -1,0 +1,47 @@
+#!/bin/bash
+# (C) 2020 Michael J. Beer, DLR <michael.beer@dlr.de>
+#
+# This script acts as a launcher for binaries not in path.
+# It works rather simple:
+# If you got an installation of e.g. eclipse in
+# $HOME/programs/eclipse
+# But $HOME/programs/eclipse is not in your PATH,
+# You can just put e.g. $HOME/programs/bin in your PATH, put this script there
+# and create a symlink via `ln $HOME/programs/bin/launcher eclipse`
+#
+# This turns out handy if you got more software you installed locally:
+# If e.g. you also had firefox installed in $HOME/programs/firefox,
+# you would have to add your eclipse AND firefox dirs to PATH.
+# With this solution, you only require to have $HOME/programs/bin in your
+# path, and need no clumsy script copying and tweeking.
+#
+# This comes at a price, though:
+# In order for you to work:
+# 1) The directory your binary is located must be called like the binary itself,.
+#    e.g. $HOME/programs/firefox/firefox as path to firefox is OK, but
+#         $HOME/programs/firefox-67/firefox would not be
+# 2) You need to create a symlink (or a copy of) this script that is called
+#    like the binary, e.g. for $HOME/programs/firefox/firefox your
+#    symlink was `firefox`
+
+# Courtesy to Dave Dobson's answer on
+# https://stackoverflow.com/questions/59895/how-to-get-the-source-directory-of-a-bash-script-from-within-the-script-itself
+function abs_script_dir_path() {
+    SOURCE="${BASH_SOURCE[0]}"
+    while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+        SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+        SOURCE="$(readlink "$SOURCE")"
+        [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+    done
+    SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+    echo $SCRIPT_DIR
+}
+
+PROGRAM=$(basename $0)
+OLD_DIR=$(pwd)
+SCRIPT_DIR=$(abs_script_dir_path)
+
+cd "${SCRIPT_DIR}/../$PROGRAM"
+./$PROGRAM "$@"
+
+cd "$OLD_DIR"

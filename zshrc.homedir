@@ -1,0 +1,60 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} r:|[._-]=* r:|=*' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}'
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle :compinstall filename '/home/michael/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=1000
+# End of lines configured by zsh-newuser-install
+
+xset b off
+xset b 0 0 0
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alias ls='ls --color'
+
+# Force emacs keymap
+bindkey -e
+
+# JAVA
+export JAVA_HOME="/opt/jdk-10.0.2"
+
+# RUST
+source $HOME/.cargo/env
+
+
+# PROMPT
+export PROMPT="%F{green}%n%f@%m:%F{blue}%B%~%b%f$ "
+
+# GIT etc
+export GIT_AUTHOR_NAME="Michael J. Beer"
+export GIT_AUTHOR_EMAIL="michael.beer@dlr.de"
+
+export AUTHOR="$GIT_AUTHOR_NAME, DLR/GSOC <$GIT_AUTHOR_EMAIL>"
+export EDITOR=vim
+
+# export http_proxy="http://proxywww.nos.office:3128"
+# export https_proxy="http://proxywww.nos.office:3128"
+
+# PATH
+source $HOME/.PATH
+
+export SCREENDIR=$HOME/.screen
+# openvocs
+OPENVOCS_ROOT=$HOME/projekte/ov/openvocs2
+
+cd $OPENVOCS_ROOT
+source $OPENVOCS_ROOT/env.sh
+
+export PATH=$JAVA_HOME/bin:$PATH

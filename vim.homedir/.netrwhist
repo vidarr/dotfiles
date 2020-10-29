@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/beer/dotfiles/i3.config'
+let g:netrw_dirhist_6='/home/beer/dotfiles/sxhkd.config'
+let g:netrw_dirhist_5='/home/beer/dotfiles/plugin.scripts'
+let g:netrw_dirhist_4='/home/beer/dotfiles'
+let g:netrw_dirhist_3='/home/beer/dotfiles/i3.config'
+let g:netrw_dirhist_2='/home/beer/dotfiles'
+let g:netrw_dirhist_1='/home/beer/dotfiles/nvim.config'
+let g:netrw_dirhist_0='/home/beer/dotfiles/plugin.scripts'
+let g:netrw_dirhist_9='/home/beer/dotfiles/i3.config'
+let g:netrw_dirhist_8='/home/beer/projekte/ov/openvocs2/src/service/ov_mixer/src'

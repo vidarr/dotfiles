@@ -1,0 +1,17 @@
+super + Return
+    /usr/local/bin/st
+
+super + d
+    dmenu_run
+
+super + v
+    /usr/bin/nvim-qt
+
+# super + shift + z
+#    /usr/bin/i3lock
+
+super + t
+    /home/beer/bin/open-todo
+
+super + shift + z
+    /usr/local/bin/slock
