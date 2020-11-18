@@ -35,3 +35,6 @@ kcachegrind
 
 # contains the errno(1) utility
 moreutils
+
+# for compiling st
+libharfbuzz-dev
