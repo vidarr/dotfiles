@@ -7,6 +7,11 @@ feh
 screen
 nm-applet
 pasystray
+htop
+
+# bspwm
+bspwm
+polybar
 
 # monitor files for changes
 entr

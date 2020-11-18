@@ -152,3 +152,6 @@ super + shift + n
 
 super + shift + b
     bspc node focused -t \~floating ; hover left
+
+super + shift + e
+    bspc quit
