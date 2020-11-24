@@ -43,9 +43,12 @@ XF86Audio{Raise,Lower}Volume
 # bspwm
 #===============================================================================
 
-# close and kill
-super + {_,shift + }q
-    bspc node -{c,k}
+# close
+super + shift + q
+    bspc node focused -c
+
+# super + {_,shift + }q
+#     bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 super + {_,shift + }f
