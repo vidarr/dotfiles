@@ -9,6 +9,12 @@ nm-applet
 pasystray
 htop
 
+# Essential analysis tools
+gnuplot
+wireshark
+tcpmdump
+netcat
+
 # bspwm
 bspwm
 polybar
