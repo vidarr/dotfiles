@@ -1,4 +1,10 @@
 *.pyc
 .netrwhist
 *.swp
+*.o
+
+" Compiled files
+suckless/slock/slock
+suckless/st/st
+
 
