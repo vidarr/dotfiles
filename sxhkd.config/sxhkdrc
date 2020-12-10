@@ -18,8 +18,11 @@ super + ctrl + a
 super + ctrl + m
     $TERMINAL -e cmus
 
+# super + ctrl + v
+#     /usr/bin/nvim-qt
+
 super + ctrl + v
-    /usr/bin/nvim-qt
+    /home/beer/bin/open-nvim
 
 super + ctrl + t
     /home/beer/bin/open-todo

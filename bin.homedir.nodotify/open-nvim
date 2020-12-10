@@ -1,0 +1,12 @@
+# vim: ft=sh
+#!/bin/sh
+
+DIRECTORY=$(
+(cat <<EOM
+$OPENVOCS_ROOT
+$HOME
+EOM
+) | dmenu -i -l 10
+)
+
+[ "X$DIRECTORY" != "X" ] && nvim-qt $DIRECTORY

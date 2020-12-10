@@ -1,0 +1,6 @@
+# vim: ft=sh
+#!/bin/sh
+
+TODO_DIR=$HOME/data/todos
+todo=$(ls $TODO_DIR | dmenu -i -l 10)
+[ "X$todo" != "X" ] && nvim-qt $TODO_DIR/$todo

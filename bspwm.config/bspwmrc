@@ -22,7 +22,7 @@ bspc desktop -f 1
 
 bspc config border_width 1
 bspc config window_gap 1
-bspc config top_padding 24	# top_padding I set equal to polybar's height
+bspc config top_padding 27
 bspc config focus_follows_pointer true
 
 dropdownname="dropdown"
