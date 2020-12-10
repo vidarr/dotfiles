@@ -35,7 +35,13 @@ set complete-=t     " Disable complete searching tags - I dont use them
 
 set scrolloff=999
 
-set autochdir
+" Plugin-friendly supplicant to `set autochdir`
+autocmd BufEnter * silent! lcd %:p:h
+
+" Have netrw change the current dir to its own working dir
+let g:netrw_keepdir=0
+
+
 
 set autoread
 
