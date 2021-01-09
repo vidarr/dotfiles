@@ -44,3 +44,5 @@ moreutils
 
 # for compiling st
 libharfbuzz-dev
+libxft2-dev
+libxrandr-dev
