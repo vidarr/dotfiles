@@ -1,0 +1,2 @@
+bspc monitor eDP-1 -d I II III IV V
+bspc monitor HDMI-2 -d VI VII VIII IX X

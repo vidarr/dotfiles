@@ -159,5 +159,9 @@ super + shift + n
 super + shift + b
     bspc node focused -t \~floating ; hover left
 
+# Keep being logged in
 super + shift + e
-    bspc quit
+    dm-tool switch-to-greeter
+
+# Quit bspc
+#   bspc quit
