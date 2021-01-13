@@ -1,0 +1,62 @@
+#!/bin/sh
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
+
+# We look for a non-laptop monitor to use for default, but use the laptop
+# screen (eDP-1) if there's nothing else. This is because I assume that if you
+# have an extra screen attached to a laptop, you want to use that.
+
+internalmonitor="eDP-1"
+mainmonitor="$(bspc query --monitors --names | grep -v $internalmonitor| head -n 1)"
+
+if ! echo "$mainmonitor" | grep eDP-1 >/dev/null 2>&1; then
+    # Multi monitor
+
+    # Switch internal laptop monitor off
+    # xrandr --output "$mainmonitor" --auto --output eDP-1 --off
+    xrandr --output $mainmonitor --above $internalmonitor
+    bspc monitor "$mainmonitor" -d 1 2 3 4 5 6 7 8 9
+    bspc monitor "$internalmonitor" -d 0
+else
+    # Single monitor
+    bspc monitor "$internalmonitor" -d 1 2 3 4 5 6 7 8 9 0
+fi
+
+bspc desktop -f 1
+
+
+bspc config border_width 1
+bspc config window_gap 1
+bspc config top_padding 27
+bspc config focus_follows_pointer true
+
+dropdownname="dropdown"
+bspc query -N -n .hidden >/dev/null || setsid -f "$TERMINAL" -n "$dropdownname" -e dropdown >/dev/null 2>&1
+bspc rule -a St:$dropdownname hidden=on
+bspc rule -a St:$dropdownname sticky=on
+bspc rule -a St:$dropdownname state=floating
+
+bspc config external_rules_command "$(which floaters)"
+
+#-------------------------------------------------------------------------------
+# Start certain apps always on certain desktop
+
+bspc rule -a Firefox desktop="^6"
+
+# -----------------------------------------------------------------------------
+# Other
+# -----------------------------------------------------------------------------
+
+sxhkd &
+
+xmodmap -e "pointer = 3 2 1"
+
+feh --bg-fill $HOME/Pictures/flossenbuerg_1.jpg  $HOME/Pictures/flossenbuerg_1.jpg &
+
+$HOME/.config/polybar/launch.sh
+
+# Handled by polybar modules ...
+# nm-applet &
+# pasystray &
+
+#xrandr --output eDP-1 --mode 1280x720

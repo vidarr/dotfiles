@@ -19,8 +19,10 @@
 #
 #------------------------------------------------------------------------------
 #
-# @author Michael J. Beer
-# @copyright (c) 2020 Michael J. Beer
+# Comprehensive description of this python script
+#
+# @author Michael J. Beer, DLR/GSOC
+# @copyright (c) 2020 German Aerospace Center DLR e.V. (GSOC)
 # @date 2020-08-05
 #
 #------------------------------------------------------------------------------

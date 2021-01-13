@@ -1,5 +1,5 @@
 #!/bin/bash
-# (C) 2020 Michael J. Beer, DLR <michael.beer@dlr.de>
+# (C) 2020 Michael J. Beer, <michael.josef.beer@gmail.com>
 #
 # This script acts as a launcher for binaries not in path.
 # It works rather simple:

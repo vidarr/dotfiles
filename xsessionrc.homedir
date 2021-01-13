@@ -1,1 +1,1 @@
-export PATH=$HOME/programs/firefox:$HOME/programs/bin:$HOME/bin:$PATH
+. $HOME/.global_shell_vars

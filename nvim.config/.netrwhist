@@ -1,12 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
-let g:netrw_dirhist_9='/home/beer/projekte/ov/openvocs2/src/service/ov_resource_manager/src'
-let g:netrw_dirhist_8='/home/beer/projekte/ov/openvocs2/src/service/ov_resource_manager'
-let g:netrw_dirhist_7='/home/beer/projekte/ov/openvocs2/src/service'
-let g:netrw_dirhist_6='/home/beer/projekte/ov/openvocs2/src'
-let g:netrw_dirhist_5='/home/beer/projekte/ov/openvocs2/src/lib'
-let g:netrw_dirhist_4='/home/beer/projekte/ov/openvocs2/src/lib/ov_uuid'
-let g:netrw_dirhist_3='/home/beer/projekte/ov/openvocs2/src/lib/ov_uuid/src'
-let g:netrw_dirhist_2='/home/beer/projekte/ov/openvocs2_release/src/lib/ov_backend/include'
-let g:netrw_dirhist_1='/home/beer'
-let g:netrw_dirhist_0='/home/beer/projekte/ov/openvocs2/test/03-echo_cancellator'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/michael/projekte/ov/openvocs2'

@@ -7,6 +7,17 @@ feh
 screen
 nm-applet
 pasystray
+htop
+
+# Essential analysis tools
+gnuplot
+wireshark
+tcpmdump
+netcat
+
+# bspwm
+bspwm
+polybar
 
 # monitor files for changes
 entr
@@ -30,3 +41,8 @@ kcachegrind
 
 # contains the errno(1) utility
 moreutils
+
+# for compiling st
+libharfbuzz-dev
+libxft2-dev
+libxrandr-dev

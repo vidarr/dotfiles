@@ -1,0 +1,13 @@
+lsusb:
+    072f:90cc
+
+aptitude install libacsccid1
+aptitude install opensc
+aptitude install pcscd
+pcsc_scan
+opensc-tool -l
+    ok
+opensc-tool -n
+    unusupported card
+pkcs15-tool --reader 0 --list-pins
+    Failed to connect to card: Card is invalid or cannot be handled
