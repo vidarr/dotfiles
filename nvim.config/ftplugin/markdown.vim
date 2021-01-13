@@ -1,1 +1,0 @@
-/home/beer/.vim/ftplugin/markdown.vim

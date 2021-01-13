@@ -1,1 +1,0 @@
-/home/beer/.vim/ftplugin/sh.vim
