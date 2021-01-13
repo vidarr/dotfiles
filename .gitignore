@@ -1,10 +1,12 @@
-*.pyc
 .netrwhist
 *.swp
-*.o
 
 " Compiled files
 suckless/slock/slock
 suckless/st/st
+bin.homedir.nodotify/cgdb
 
-
+" Compilation results
+*.o
+*.pyc
+__pycache__
