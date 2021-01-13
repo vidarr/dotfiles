@@ -22,10 +22,10 @@ super + ctrl + m
 #     /usr/bin/nvim-qt
 
 super + ctrl + v
-    /home/beer/bin/open-nvim
+    $HOME/bin/open-nvim
 
 super + ctrl + t
-    /home/beer/bin/open-todo
+    $HOME/bin/open-todo
 
 # Audio keys
 
