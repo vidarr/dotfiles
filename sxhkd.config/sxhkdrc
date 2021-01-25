@@ -41,6 +41,13 @@ XF86AudioMute
 XF86Audio{Raise,Lower}Volume
     amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
 
+# Brightness control
+
+XF86MonBrightnessDown
+    xbacklight -dec 5
+
+XF86MonBrightnessUp
+    xbacklight -inc 5
 
 #===============================================================================
 # bspwm
