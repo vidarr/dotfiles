@@ -21,5 +21,6 @@
                 }
             }
         }
-    }
+    },
+    "rust-analyzer.server.path": "/home/beer/.local/bin/rust-analyzer"
 }
