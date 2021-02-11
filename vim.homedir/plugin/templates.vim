@@ -18,9 +18,19 @@
 "
 function! NewFileFromTemplate(template)
 
+    let l:templatedir="$HOME/.vim/templates"
+
+    if exists("g:Templatedir")
+
+        let l:templatedir = g:Templatedir
+
+    endif
+
+    let l:templatepath= a:templatedir . "/" . template
+
     let regexes = [["YEAR", strftime("%Y")], ["DATE", strftime("%Y-%m-%d")], ["FILENAME_BASE", toupper(expand("%:t:r"))], ["FILENAME", expand("%")]]
 
-    execute "0r " . a:template
+    execute "0r " . l:templatepath
 
     let start_point = 0
     let l = 1
@@ -45,22 +55,14 @@ function! NewFileFromTemplate(template)
 
 endfunction
 
-let templatedir="templates"
-
-if exists("g:Templatedir")
-
-    let templatedir = g:Templatedir
-
-endif
-
 " Template registrations
 if has("autocmd")
     augroup templates
-        autocmd BufNewFile *.md :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.md")
-        autocmd BufNewFile *.sh :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.sh")
-        autocmd BufNewFile *.rs :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.rs")
-        autocmd BufNewFile *.c :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.c")
-        autocmd BufNewFile *.h :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.h")
-        autocmd BufNewFile *.py :call NewFileFromTemplate("$HOME/.vim/" . templatedir . "/template.py")
+        autocmd BufNewFile *.md :call NewFileFromTemplate("/template.md")
+        autocmd BufNewFile *.sh :call NewFileFromTemplate("/template.sh")
+        autocmd BufNewFile *.rs :call NewFileFromTemplate("/template.rs")
+        autocmd BufNewFile *.c :call NewFileFromTemplate("/template.c")
+        autocmd BufNewFile *.h :call NewFileFromTemplate("/template.h")
+        autocmd BufNewFile *.py :call NewFileFromTemplate("/template.py")
     augroup END
 endif
