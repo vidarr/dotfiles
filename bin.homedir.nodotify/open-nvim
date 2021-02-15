@@ -4,9 +4,10 @@
 DIRECTORY=$(
 (cat <<EOM
 $OPENVOCS_ROOT
+$HOME/projekte/rustydns
 $HOME
 EOM
 ) | dmenu -i -l 10
 )
 
-[ "X$DIRECTORY" != "X" ] && nvim-qt $DIRECTORY
+[ "X$DIRECTORY" != "X" ] && cd $DIRECTORY && nvim-qt .
