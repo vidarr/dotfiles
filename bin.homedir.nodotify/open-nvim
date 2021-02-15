@@ -3,7 +3,7 @@
 
 DIRECTORY=$(
 (cat <<EOM
-$OPENVOCS_ROOT
+$HOME/projekte/eldritchd
 $HOME
 EOM
 ) | dmenu -i -l 10
