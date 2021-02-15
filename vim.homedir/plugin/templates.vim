@@ -26,7 +26,7 @@ function! NewFileFromTemplate(template)
 
     endif
 
-    let l:templatepath= a:templatedir . "/" . template
+    let l:templatepath= l:templatedir . "/" . a:template
 
     let regexes = [["YEAR", strftime("%Y")], ["DATE", strftime("%Y-%m-%d")], ["FILENAME_BASE", toupper(expand("%:t:r"))], ["FILENAME", expand("%")]]
 
