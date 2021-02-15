@@ -36,6 +36,7 @@ curl
 
 #development
 kdiff3
+clangd
 
 valgrind
 
@@ -52,3 +53,5 @@ moreutils
 libharfbuzz-dev
 libxft2-dev
 libxrandr-dev
+
+# For creating project files for clangd
