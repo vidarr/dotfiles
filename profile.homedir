@@ -1,6 +1,3 @@
 . $HOME/.global_shell_vars
 
 . $HOME/.cargo/env
-
-cd $OPENVOCS_ROOT
-. $OPENVOCS_ROOT/env.sh
