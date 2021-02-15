@@ -309,6 +309,6 @@ augroup END
 " For vim config files, reload
 au FileType vim nmap <silent> <leader>r :source %<CR>
 
-nmap <silent> <UP> :cn<CR>
-nmap <silent> <DOWN> :cN<CR>
+noremap <silent> <F12> <ESC>: ! kate %<CR>
+
 

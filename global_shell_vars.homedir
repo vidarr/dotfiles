@@ -17,6 +17,3 @@ export TERMINAL=/usr/local/bin/st
 
 export SCREENDIR=$HOME/.screen
 
-# openvocs
-export OPENVOCS_ROOT=$HOME/projekte/ov/openvocs2
-

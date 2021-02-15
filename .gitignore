@@ -1,2 +1,12 @@
-nvim.config/.netrwhist
-vim.homedir/.netrwhist
+*.pyc
+.netrwhist
+
+" Compiled files
+suckless/slock/slock
+suckless/st/st
+bin.homedir.nodotify/cgdb
+
+" Compilation results
+*.o
+*.pyc
+__pycache__

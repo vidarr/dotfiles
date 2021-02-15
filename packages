@@ -19,6 +19,12 @@ netcat
 bspwm
 polybar
 
+# Backlight control for laptop
+xbacklight
+
+# Audio control
+amixer
+
 # monitor files for changes
 entr
 
@@ -30,6 +36,7 @@ curl
 
 #development
 kdiff3
+clangd
 
 valgrind
 
@@ -46,3 +53,5 @@ moreutils
 libharfbuzz-dev
 libxft2-dev
 libxrandr-dev
+
+# For creating project files for clangd
