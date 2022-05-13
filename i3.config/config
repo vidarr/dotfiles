@@ -31,7 +31,7 @@ font pango:monospace 12
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec /usr/bin/urxvt -e /usr/bin/zsh
+bindsym $mod+Return exec /usr/bin/urxvt -e /usr/bin/bash
 # bindsym $mod+Return exec /usr/local/bin/st
 
 # kill focused window
