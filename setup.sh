@@ -33,6 +33,18 @@ SOURCE_DIR=$(pwd)
 
 TEMPDIR=/tmp
 
+function install_packages() {
+
+    PACKAGES=$(cat packages)
+
+    for PACKAGE in $PACKAGES; do
+        sudo apt -y install $PACKAGE
+    done
+
+}
+
+#-------------------------------------------------------------------------------
+
 function install_files () {
 
     SUFFIX=$1
@@ -63,6 +75,7 @@ function install_files () {
 #                                     MAIN
 #------------------------------------------------------------------------------
 
+install_packages
 install_files homedir $HOME "dotify"
 install_files homedir.nodotify $HOME
 install_files config $HOME/.config
