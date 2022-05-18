@@ -9,49 +9,37 @@ nm-applet
 pasystray
 htop
 
-# Essential analysis tools
 gnuplot
 wireshark
-tcpmdump
+tcpdump
 netcat
 
-# bspwm
 bspwm
 polybar
 
-# Backlight control for laptop
 xbacklight
 
-# Audio control
 amixer
 
-# monitor files for changes
 entr
 
-# For displaying images directly in ranger
 w3m-img
 
-# At least for rust installation
 curl
 
-#development
 kdiff3
 clangd
+make
 
 valgrind
 
-# for evaluating massif output
 massif-visualizer
 
-# for evaluating massif xtree output
 kcachegrind
 
-# contains the errno(1) utility
 moreutils
 
-# for compiling st
 libharfbuzz-dev
 libxft2-dev
 libxrandr-dev
 
-# For creating project files for clangd
