@@ -32,5 +32,5 @@
 #
 #------------------------------------------------------------------------------
 
-sudo curl -sL install-node.now.sh/lts | bash
+sudo curl -sL install-node.now.sh/lts | sudo bash
 
