@@ -227,6 +227,8 @@ exec xrandr --output eDP-1 --mode 1280x720
 # bindsym $mod+Shift+z exec /usr/bin/i3lock
 
 exec xmodmap -e "pointer = 3 2 1"
+xmodmap -e "clear lock"
+xmodmap -e "keysym Caps_Lock = Escape"
 
 exec feh --bg-fill $HOME/Pictures/flossenbuerg_1.jpg  $HOME/Pictures/flossenbuerg_1.jpg
 
