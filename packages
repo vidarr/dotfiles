@@ -1,4 +1,4 @@
-vim
+vim-nox
 i3
 ranger
 mupdf
@@ -30,6 +30,7 @@ curl
 kdiff3
 clangd
 make
+clang-format
 
 valgrind
 
@@ -44,3 +45,6 @@ libxft2-dev
 libxrandr-dev
 
 erlang
+
+groff
+rxvt-unicode

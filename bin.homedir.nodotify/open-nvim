@@ -3,6 +3,7 @@
 
 DIRECTORY=$(
 (cat <<EOM
+$HOME/projekte/openvocs/code
 $HOME/projekte/eldritchd
 $HOME
 EOM
