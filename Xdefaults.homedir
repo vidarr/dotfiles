@@ -10,11 +10,11 @@ Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-URxvt.font:xft:Monospace:pixelsize=17
-URxvt.boldfont:xft:Monospace-Bold:pixelsize=18
+URxvt.font: xft:Monospace:pixelsize=24
+URxvt.boldfont: xft:Monospace-Bold:pixelsize=30
 
-! URxvt.font:xft:mono:medium:size=12
-! URxvt.boldfont:xft:mono:medium:size=12
+! URxvt.font: xft:mono:medium:size=12
+! URxvt.boldfont: xft:mono:medium:size=12
 
 ! -- Colors -- !
 URxvt*color0:  #000000
