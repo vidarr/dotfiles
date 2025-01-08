@@ -50,7 +50,9 @@ syntax enable
 " Colors
 set background=dark
 colorscheme skirnir
-set guifont=Courier\ 10\ Pitch\ 14
+" Find proper gui font by invoking
+" set guifont=*
+set guifont=Monospace:h14
 
 " Handle X11 selection
 set guioptions+=a
@@ -99,7 +101,7 @@ let g:markdown_minlines = 100
 
 " When printig from vim (":hardcopy > file.pdf"), interpret form feed (^L) as
 " PAGE BREAKS
-:set printoptions=formfeed:y
+"set printoptions=formfeed:y
 
 
 " Fix terminal type if inside gnu screen(1)

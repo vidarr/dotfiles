@@ -1,10 +1,10 @@
-GuiFont! Courier:b:h18
+GuiFont! Monospace:n:h14
 
-let s:fontsize = 18
+let s:fontsize = 14
 
 function! AdjustFontSize(amount)
     let s:fontsize = s:fontsize + a:amount
-    :execute "GuiFont! Courier:b:h" . s:fontsize
+    :execute "GuiFont! Monospace:n:h" . s:fontsize
 endfunction
 
 noremap <A-J> :call AdjustFontSize(-1)<CR>
