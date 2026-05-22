@@ -1,0 +1,5 @@
+#!/bin/bash
+HCC_ROOT=$HOME/projekte/hcc
+export HCC_ROOT
+cd $HCC_ROOT/playground/
+./startup.sh

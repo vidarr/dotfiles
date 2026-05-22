@@ -3,7 +3,13 @@
 
 DIRECTORY=$(
 (cat <<EOM
-$HOME/projekte/openvocs/code
+$HOME/projekte/hcc/life
+$HOME/projekte/hcc/playground/notes.md
+$HOME/projekte/hcc/hcc-api-cpp
+$HOME/projekte/hcc/hcc-dt
+$HOME/projekte/hcc/tutorial-chat
+$HOME/projekte/openvocs2/openvocs
+$HOME/projekte/openvocs2/openvocs_commercial
 $HOME/projekte/eldritchd
 $HOME
 EOM

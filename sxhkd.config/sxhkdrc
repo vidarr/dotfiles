@@ -30,16 +30,19 @@ super + ctrl + t
 # Audio keys
 
 super + {equal,plus}
-    amixer sset Master {5,15}%+; pkill -RTMIN+10 blocks
+    $HOME/bin/volume {inc,superinc}
+    # amixer sset Master {5,15}%+; pkill -RTMIN+10 blocks
 
 super {_,shift +} + minus
-    amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
+    $HOME/bin/volume {dec,superdec}
+    # amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
 
 XF86AudioMute
     amixer sset Master toggle; pkill -RTMIN+10 blocks
 
 XF86Audio{Raise,Lower}Volume
-    amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
+    $HOME/bin/volume {inc,dec}
+    # amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
 
 # Brightness control
 

@@ -8,26 +8,35 @@ function usage() {
     exit 1
 }
 
+echo "volume called" >> /tmp/volume
+
 if [ "X$1" == "X" ]; then
     usage
 else
 
-case "$1" in
+    case "$1" in
 
-   inc)
-   VOLUME='+5%';;
+       inc)
+       VOLUME='+5%';;
 
-   dec)
-   VOLUME='-5%';;
+       superinc)
+       VOLUME='+15%';;
 
-   *)
-   usage;;
-esac
+       dec)
+       VOLUME='-5%';;
 
-for SINK in $(pacmd list-sinks | grep 'index:' | cut -b12-)
-do
-   pactl set-sink-volume $SINK $VOLUME
-done
+       superdec)
+       VOLUME='-15%';;
+
+       *)
+       usage;;
+    esac
+
+    for SINK in $(pacmd list-sinks | grep 'index:' | cut -b12-)
+    do
+        echo "pactl set-sink-volume $SINK $VOLUME" >> /tmp/volume
+       pactl set-sink-volume $SINK $VOLUME
+    done
 
 fi
 

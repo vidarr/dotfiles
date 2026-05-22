@@ -1,0 +1,3 @@
+#!/bin/bash
+cd $HOME/projekte/hcc/hcc-api-c
+source env.sh

@@ -55,7 +55,7 @@ colorscheme skirnir
 set guifont=Monospace:h14
 
 " Handle X11 selection
-set guioptions+=a
+"set guioptions+=a
 
 " Highlight column stuff
 let g:Colorcolumn = "80,".join(range(120,999),",")

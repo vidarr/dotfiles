@@ -1,0 +1,5 @@
+#!/bin/bash
+cd $HOME/projekte/hcc/
+source env.sh
+cd hcc-dt
+

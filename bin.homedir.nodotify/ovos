@@ -1,0 +1,3 @@
+#!/bin/bash
+cd $HOME/projekte/openvocs2/openvocs
+source env.sh

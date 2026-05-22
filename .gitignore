@@ -10,3 +10,11 @@ bin.homedir.nodotify/cgdb
 *.o
 *.pyc
 __pycache__
+nvim.config/tt.*
+nvim.config/.tests
+nvim.config/doc/tags
+nvim.config/debug
+nvim.config/.repro
+nvim.config/foo.*
+nvim.config/*.log
+nvim.config/data
