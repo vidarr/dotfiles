@@ -2,7 +2,8 @@
 #!/bin/sh
 
 DIRECTORY=$(
-(cat <<EOM
+  (
+    cat <<EOM
 $HOME/projekte/hcc/life
 $HOME/projekte/hcc/playground/notes.md
 $HOME/projekte/hcc/hcc-api-cpp
@@ -13,7 +14,7 @@ $HOME/projekte/openvocs2/openvocs_commercial
 $HOME/projekte/eldritchd
 $HOME
 EOM
-) | dmenu -i -l 10
+  ) | dmenu -i -l 10
 )
 
-[ "X$DIRECTORY" != "X" ] && nvim-qt $DIRECTORY
+[ "X$DIRECTORY" != "X" ] && cd $DIRECTORY && nvim-qt .
