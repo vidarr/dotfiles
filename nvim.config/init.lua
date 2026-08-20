@@ -1,166 +1,307 @@
--- ========================================================================== --
---  1b. DEIN CUSTOM COLOR-SCHEME (Orangefarbener Haupttext + Bunte Syntax)
--- ========================================================================== --
+print("Start - init.lua wird geladen")
+vim.cmd('source /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim')
+
+vim.opt.autochdir = true
+
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = "80"
+
+vim.opt.cursorline = true
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2d3139" })
+
 vim.opt.guifont = "Monospace:h18"
-vim.opt.background = 'dark' -- Korrigierte native Lua-Variante
+vim.opt.background = 'dark'
 
-local schwarz = "#0F1112"          -- Sehr tiefes, modernes Anthrazit-Schwarz
-local mein_orange = "#FF8C00"      -- Das satte Orange für deinen Haupttext
+local black = "#0F1112"
+local orange = "#FF8C00"
 
--- 1. Haupttext & Hintergrund
-vim.api.nvim_set_hl(0, "Normal", { fg = mein_orange, bg = schwarz }) 
-vim.api.nvim_set_hl(0, "Identifier", { fg = mein_orange }) -- Variablen/Bezeichner erben dein Orange
+vim.api.nvim_set_hl(0, "Normal", { fg = orange, bg = black }) 
+vim.api.nvim_set_hl(0, "Identifier", { fg = orange })
 
--- 2. Syntax-Highlighting (Eigene Farben für perfekte Unterscheidbarkeit)
-vim.api.nvim_set_hl(0, "Statement", { fg = "#E06C75", bold = true }) -- if, else, return (Warmes Rot)
-vim.api.nvim_set_hl(0, "Keyword",   { fg = "#C678DD", bold = true }) -- function, local, def (Edles Violett)
-vim.api.nvim_set_hl(0, "Function",  { fg = "#61AFEF", bold = true }) -- Funktionsnamen (Klares Blau)
-vim.api.nvim_set_hl(0, "String",    { fg = "#98C379" })               -- Text/Strings (Frisches Grün)
-vim.api.nvim_set_hl(0, "Constant",  { fg = "#D19A66" })               -- Zahlen & Booleans (Mattes Gold)
-vim.api.nvim_set_hl(0, "Type",      { fg = "#56B6C2" })               -- Datentypen wie int, string (Cyan)
-vim.api.nvim_set_hl(0, "Comment",   { fg = "#5C6370", italic = true })-- Kommentare (Dezentes Grau)
-vim.api.nvim_set_hl(0, "Special",   { fg = "#E5C07B" })               -- Sonderzeichen/Klammern (Gelb)
+vim.api.nvim_set_hl(0, "Statement", { fg = "#E06C75", bold = true })
+vim.api.nvim_set_hl(0, "Keyword",   { fg = "#C678DD", bold = true })
+vim.api.nvim_set_hl(0, "Function",  { fg = "#61AFEF", bold = true })
+vim.api.nvim_set_hl(0, "String",    { fg = "#98C379" })
+vim.api.nvim_set_hl(0, "Constant",  { fg = "#D19A66" })
+vim.api.nvim_set_hl(0, "Type",      { fg = "#56B6C2" })
+vim.api.nvim_set_hl(0, "Comment",   { fg = "#5C6370", italic = true })
+vim.api.nvim_set_hl(0, "Special",   { fg = "#E5C07B" })
 
 -- 3. UI-Elemente für nvim-qt Popups
-vim.api.nvim_set_hl(0, "LineNr",    { fg = "#4B5263" })               -- Zeilennummern
-vim.api.nvim_set_hl(0, "Visual",    { bg = "#2C313C" })               -- Markierter Text
-vim.api.nvim_set_hl(0, "Pmenu",     { fg = mein_orange, bg = "#1E222A" }) -- Blink-Popup-Hintergrund
-vim.api.nvim_set_hl(0, "PmenuSel",  { fg = schwarz, bg = mein_orange })   -- Blink-Auswahl
+vim.api.nvim_set_hl(0, "LineNr",    { fg = "#4B5263" })
+vim.api.nvim_set_hl(0, "Visual",    { bg = "#2C313C" })
+vim.api.nvim_set_hl(0, "Pmenu",     { fg = orange, bg = "#1E222A" })
+vim.api.nvim_set_hl(0, "PmenuSel",  { fg = black, bg = orange })
 
--- ========================================================================== --
---  1. NATIVE VIM-OPTIONEN (Traditionell & Schlank)
--- ========================================================================== --
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.number = true         -- Zeilennummern anzeigen
-vim.opt.mouse = 'a'           -- Mausunterstützung aktivieren
-vim.opt.clipboard = 'unnamedplus' -- System-Zwischenablage nutzen
-vim.opt.breakindent = true    -- Zeilenumbrüche einrücken
-vim.opt.undofile = true       -- Persistent Undo
-vim.opt.ignorecase = true     -- Such-Großschreibung ignorieren...
-vim.opt.smartcase = true      -- ...außer es wird explizit groß geschrieben
-vim.opt.updatetime = 250      -- Schnellere Reaktion für LSP-Popups
-vim.opt.signcolumn = 'yes'    -- Platz für LSP-Icons links freihalten
-vim.opt.termguicolors = true  -- True Color Support
+vim.opt.number = true
+vim.opt.mouse = 'a'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.breakindent = true
+vim.opt.undofile = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.updatetime = 250
+vim.opt.signcolumn = 'yes'
+vim.opt.termguicolors = true
 
--- ========================================================================== --
---  2. LAZY.NVIM BOOTSTRAP (Paketmanager installieren)
--- ========================================================================== --
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system {
-    'git', 'clone', '--filter=blob:none', '--branch=stable',
-    'https://github.com', lazypath
-  }
+    vim.fn.system {
+        'git', 'clone', '--filter=blob:none', '--branch=stable',
+        'https://github.com', lazypath
+    }
 end
 vim.opt.rtp:prepend(lazypath)
 
--- ========================================================================== --
---  3. PLUGIN-KONFIGURATION & MODERNES LSP (Neovim 0.11+)
--- ========================================================================== --
 require('lazy').setup({
 
-  -- Der moderne FuzzyFinder (Ersatz für dein altes Plugin)
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'FuzzyFinder: Dateien' })
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'FuzzyFinder: Text' })
-      vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = 'FuzzyFinder: Offene Buffer' })
-    end
-  },
+    {
+        "chentoast/marks.nvim",
+        config = true
+    };
 
-  -- BLINK.CMP (Die ultraschnelle Autovervollständigung, Ersatz für CoC)
-  {
-    'saghen/blink.cmp',
-    version = '*', -- Nutzt stabile Releases
-    opts = {
-      keymap = { preset = 'default' }, -- Pfeiltasten/Tab navigieren, Enter wählt aus
-      appearance = { use_nvim_cmp_as_default = true },
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-      },
+    {
+        "powerman/vim-plugin-ansiesc",
+        lazy = false,
     },
-  },
-
-  -- NATIVES LSP FÜR NEOVIM 0.11+ (Reiner Datenspeicher + Autoinstaller)
-  {
-    'neovim/nvim-lspconfig', -- Liefert nur noch die Server-Definitionen, kein Framework mehr!
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+    {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            local builtin = require('telescope.builtin')
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'FuzzyFinder: Dateien' })
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'FuzzyFinder: Text' })
+            vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = 'FuzzyFinder: Offene Buffer' })
+        end
     },
-    config = function()
-      -- Definiere hier deine gewünschten Sprachen
-      local servers = { 'lua_ls' } 
+    {
+        'gelguy/wilder.nvim',
+        config = function()
+            local wilder = require('wilder')
+            wilder.setup({modes = {':', '/', '?'}})
+            wilder.set_option('renderer', wilder.popupmenu_renderer({
+                highlighter = wilder.basic_highlighter(),
+                left = {' ', wilder.popupmenu_devicons()}, -- Show file icons
+            }))
+        end
+    },
 
-      -- Mason sorgt dafür, dass die Server auf deiner Festplatte landen
-      require('mason').setup()
-      require('mason-lspconfig').setup({
-        ensure_installed = servers,
-      })
+    {
+        'saghen/blink.cmp',
+        version = '*',
+        opts = {
+            keymap = { preset = 'default' },
+            appearance = { use_nvim_cmp_as_default = true },
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+        },
+    },
 
-      -- Globale Grundeinstellung für ALLE LSP-Clients (Verknüpfung mit blink.cmp)
-      vim.lsp.config('*', {
-        capabilities = require('blink.cmp').get_lsp_capabilities()
-      })
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+        },
+        config = function()
+            local servers = { 'lua_ls', 'clangd' } 
 
-      -- Aktiviere jeden Server mit der neuen, nativen Neovim 0.11 API
-      for _, server_name in ipairs(servers) do
-        vim.lsp.enable(server_name)
-      end
+            require('mason').setup()
 
-      -- Shortcut-Funktion für LSP-Funktionen (wie in CoC gewohnt)
-      vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(event)
-          local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-          end
-          -- Deine gewohnten Navigationstasten:
-          map('gd', vim.lsp.buf.definition, 'Gehe zu Definition')
-          map('gr', require('telescope.builtin').lsp_references, 'Gehe zu Referenzen')
-          map('K', vim.lsp.buf.hover, 'Dokumentation anzeigen (Hover)')
-          map('<leader>rn', vim.lsp.buf.rename, 'Variable umbenennen')
-          map('<leader>ca', vim.lsp.buf.code_action, 'Code Action ausführen')
+            local lspconfig = require('lspconfig')
+
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+            require('mason-lspconfig').setup({
+                ensure_installed = servers,
+                handlers = {
+
+
+                    function(server_name)
+                        lspconfig[server_name].setup({
+                            capabilities = capabilities,
+                        })
+
+                    end,
+
+                    -- Spezifische Konfiguration für clangd
+                    ["clangd"] = function()
+                        lspconfig.clangd.setup({
+                            -- cmd = { "clangd", "--fallback-style={ ColumnLimit: 80 }" },
+                            cmd = { "clangd"} ,  -- "--log=verbose" },
+                            root_dir = lspconfig.util.root_pattern('.clang-format', '.git', 'compile_commands.json') or vim.fn.getcwd,
+                            on_attach = function(client, bufnr)
+                                -- Automatisch beim Speichern formatieren
+                                vim.api.nvim_create_autocmd("BufWritePre", {
+                                    buffer = bufnr,
+                                    callback = function()
+                                        vim.lsp.buf.format({ bufnr = bufnr, async = false })
+                                    end,
+                                })
+                            end,
+                        })
+                    end,
+
+
+                }
+            })
+
+            vim.api.nvim_create_autocmd('LspAttach', {
+                callback = function(event)
+                    local map = function(keys, func, desc)
+                        vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+                    end
+                    map('gd', vim.lsp.buf.definition, 'Gehe zu Definition')
+                    map('gr', require('telescope.builtin').lsp_references, 'Gehe zu Referenzen')
+                    map('K', vim.lsp.buf.hover, 'Dokumentation anzeigen (Hover)')
+                    map('<leader>rn', vim.lsp.buf.rename, 'Variable umbenennen')
+                    map('<leader>ca', vim.lsp.buf.code_action, 'Code Action ausführen')
+                    map('G=', function()
+                        vim.lsp.buf.format({ bufnr = event.buf, async = true })
+                    end, 'Code mit LSP formatieren')
+                end,
+            })
+
+        end
+    },
+
+
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" }, -- Optionale fertige Snippets
+    },
+
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp", -- LSP-Quelle für nvim-cmp
+            "saadparwaiz1/cmp_luasnip", -- Verbindet Luasnip mit nvim-cmp
+        },
+        config = function()
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
+
+            -- Lädt die friendly-snippets, falls installiert
+            require("luasnip.loaders.from_vscode").lazy_load()
+
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-Space>"] = cmp.mapping.complete(), -- Menü manuell öffnen
+                    ["<C-e>"] = cmp.mapping.abort(),        -- Menü schließen
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Auswählen mit Enter
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                }),
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" }, -- Zeigt LSP-Vorschläge an
+                    { name = "luasnip" },  -- Zeigt Snippets an
+                }),
+            })
         end,
-      })
-    end
-  },
+    },
 })
 
--- ========================================================================== --
---  5. FUZZY-FINDER DIREKT BEI ':e ' UND ':b ' (Telescope-Dropdown)
--- ========================================================================== --
-vim.api.nvim_create_autocmd("CmdlineChanged", {
-  callback = function()
-    local cmd = vim.fn.getcmdline()
-    
-    -- Gemeinsame Einstellungen für das schicke Dropdown-Aussehen
-    local dropdown_opts = require('telescope.themes').get_dropdown({
-      previewer = false, -- Macht das Fenster kompakt (keine große Code-Vorschau)
-      winblend = 10,     -- Leichte Transparenz für modernen Look
-    })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show LSP errors as pop-up" })
+vim.keymap.set('n', '<leader>o', '<cmd>LspClangdSwitchSourceHeader<CR>', { desc = 'Switch between c/c++ headers and sources' })
 
-    -- Fall 1: Datei öffnen mit ':e '
-    if cmd == "e " then
-      vim.fn.setcmdline("") -- Befehlszeile leeren
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false) -- Cmdline schließen
-      
-      dropdown_opts.prompt_title = "Datei öffnen (:e)"
-      require('telescope.builtin').find_files(dropdown_opts)
+-- Autocompletion and fuzzyfind for files
+-- vim.keymap.set('n', 'e', ':find **/', { desc = 'Find files recursively' })
+-- vim.keymap.set('n', 'b', ':buffer ', { desc = 'Search open buffers' })
+vim.o.pumblend = 10
+vim.o.wildoptions = "pum"
 
-    -- Fall 2: Buffer wechseln mit ':b '
-    elseif cmd == "b " then
-      vim.fn.setcmdline("") -- Befehlszeile leeren
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false) -- Cmdline schließen
-      
-      dropdown_opts.prompt_title = "Buffer wechseln (:b)"
-      require('telescope.builtin').buffers(dropdown_opts)
+--vim.api.nvim_create_autocmd("CmdlineChanged", {
+--  callback = function()
+--    local cmd = vim.fn.getcmdline()
+--    
+--    local dropdown_opts = require('telescope.themes').get_dropdown({
+--      previewer = false,
+--      winblend = 10,
+--    })
+--
+--    if cmd == "e " then
+--      vim.fn.setcmdline("")
+--      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+--      
+--      dropdown_opts.prompt_title = "Datei öffnen (:e)"
+--      dropdown_opts.cwd = vim.fn.expand('%:p:h')
+--      require('telescope.builtin').find_files(dropdown_opts)
+--
+--    elseif cmd == "b " then
+--      vim.fn.setcmdline("")
+--      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+--      
+--      dropdown_opts.prompt_title = "Buffer wechseln (:b)"
+--      require('telescope.builtin').buffers(dropdown_opts)
+--    end
+--  end,
+--})
+
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.list = true
+
+
+
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>fd', function()
+    local current_dir = vim.fn.expand('%:p:h')
+    builtin.find_files({ cwd = current_dir })
+end, { desc = 'Fuzzy find in current file dir' })
+
+
+if vim.fn.exists(':GuiFont') == 2 or vim.g.neovim_qt then
+
+    -- Adapt font size via ctrl-+ and ctrl--
+    local function adjust_font_size(amount)
+
+        local font = vim.opt.guifont:get()[1] or "Consolas:h11"
+
+        local name, size = font:match("([^:]+):h(%d+)")
+        if name and size then
+            local new_size = tonumber(size) + amount
+            vim.cmd(string.format("GuiFont! %s:h%d", name, new_size))
+        end
     end
-  end,
-})
 
+    vim.keymap.set({'n', 'v', 'i'}, '<C-=>', function() adjust_font_size(1) end, { silent = true })
+    vim.keymap.set({'n', 'v', 'i'}, '<C-->', function() adjust_font_size(-1) end, { silent = true })
+
+    -- Insert-Modus (schreibt danach nahtlos weiter)
+    vim.keymap.set('i', '<C-ScrollWheelUp>', function() adjust_font_size(1) end, { silent = true })
+    vim.keymap.set('i', '<C-ScrollWheelDown>', function() adjust_font_size(-1) end, { silent = true })
+end
+
+vim.opt.autowriteall = true
+require("autoformat")
