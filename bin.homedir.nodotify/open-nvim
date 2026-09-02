@@ -4,6 +4,8 @@
 DIRECTORY=$(
   (
     cat <<EOM
+$HOME/projekte/hcc/playground/websockets
+$HOME/projekte/hcc/hcc-utils
 $HOME/projekte/hcc/life
 $HOME/projekte/hcc/playground/notes.md
 $HOME/projekte/hcc/hcc-api-cpp
