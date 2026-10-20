@@ -126,11 +126,9 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
     },
     config = function()
-      local servers = { 'lua_ls', 'clangd' } 
+      local servers = { 'lua_ls', 'clangd', 'ts_ls' }
 
       require('mason').setup()
-
-      local lspconfig = require('lspconfig')
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
@@ -167,6 +165,8 @@ require('lazy').setup({
 
         }
       })
+
+      vim.lsp.enable('ts_ls')
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(event)
