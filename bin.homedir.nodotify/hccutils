@@ -1,6 +1,4 @@
 #!/bin/bash
-
-HCC_ROOT=$HOME/projekte/hcc/
-export HCC_ROOT
-cd $HCC_ROOT/playground/hcc-utils
-
+cd $HOME/projekte/hcc
+source env.sh
+cd $HOME/projekte/hcc/hcc-utils
